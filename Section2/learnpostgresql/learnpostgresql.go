@@ -16,7 +16,7 @@ type animal struct {
 	age        int
 }
 
-func main() {
+func  main() {
 	//connect to the database
 	db, err := sql.Open("postgres", "user=postgres dbname=dino sslmode=disable")
 	if err != nil {
