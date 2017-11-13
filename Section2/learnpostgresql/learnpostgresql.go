@@ -18,7 +18,7 @@ type animal struct {
 
 func  main() {
 	//connect to the database
-	db, err := sql.Open("postgres", "user=postgres dbname=dino sslmode=disable")
+	db, err := sql.Open("postgres", "user=agniy dbname=dino sslmode=disable")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -36,8 +36,9 @@ func  main() {
 		log.Fatal(err)
 	}
 	fmt.Println(a)
-	/***
-	//insert a row
+
+	//update a row
+	/*
 	result, err := db.Exec("Insert into animals (animal_type,nickname,zone,age) values ('Carnotaurus', 'Carno', $1, $2)", 3, 22)
 	if err != nil {
 		log.Fatal(err)
@@ -46,9 +47,9 @@ func  main() {
 	fmt.Println(result.LastInsertId()) //not supported here
 	fmt.Println(result.RowsAffected())
 	*/
-	/*
-		//update a row
 
+	//update a row
+	/*
 		res, err := db.Exec("Update animals set age = $1 where id = $2", 16, 2)
 		if err != nil {
 			log.Fatal(err)
@@ -56,6 +57,8 @@ func  main() {
 		fmt.Println(res.LastInsertId()) //not supported here
 		fmt.Println(res.RowsAffected())
 	*/
+
+	//How to return last inserted or updated id of row
 	/*
 		var id int
 		db.QueryRow("Update animals set age = $1 where id = $2 returning id", 16, 2).Scan(&id)
